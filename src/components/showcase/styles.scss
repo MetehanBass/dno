@@ -1,0 +1,6 @@
+.filter-button {
+  @apply uppercase p-2;
+}
+.active-filter {
+  @apply bg-[#EFEFEF] uppercase rounded-sm;
+}

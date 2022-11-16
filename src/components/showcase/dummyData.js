@@ -72,3 +72,18 @@ export const data = [
     img: "assets/showcase-watch.jpg",
   },
 ];
+
+export const filter = [
+  {
+    type: "all",
+    displayName: "Tümü",
+  },
+  {
+    type: "necklace",
+    displayName: "Kolyeler",
+  },
+  {
+    type: "bracelet",
+    displayName: "Bileklikler",
+  },
+];
