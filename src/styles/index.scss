@@ -4,7 +4,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-$color-gray: #303030;
+$color-gray: #e8e9ea;
 $color-red: #9c1c1c;
 
 $theme-colors: (
@@ -24,8 +24,14 @@ body {
 }
 
 .navbar-container {
-  background-color: theme-color(gray);
+  background-color: transparent;
 }
 .navbar-cart-total {
   background-color: theme-color(red);
+}
+
+.custom-hero-background {
+  background: url(../../public/hero-bg.jpg);
+  background-position: center;
+  background-size: cover;
 }
