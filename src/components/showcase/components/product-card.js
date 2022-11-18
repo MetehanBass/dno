@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 const ProdcutCard = ({ name, img, price }) => {
   return (
     <motion.div
-      className="relative"
+      className="relative z-[0]"
       layout
-      animate={{ opacity: 1 }}
+      whileInView={{ opacity: 1 }}
+      /* animate={{ opacity: 1 }} */
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}

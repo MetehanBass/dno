@@ -1,16 +1,20 @@
 import React from "react";
-
+import { motion } from "framer-motion";
+import "./styles.scss";
 const FilterButton = (props) => {
   const { type, displayName, setSelectedType, selectedType } = props;
   return (
-    <button
-      onClick={() => setSelectedType(`${type}`)}
-      className={`filter-button ${
-        selectedType === `${type}` && "active-filter"
-      }`}
-    >
-      {displayName}
-    </button>
+    <div className="relative">
+      <button
+        onClick={() => setSelectedType(`${type}`)}
+        className={`filter-button `}
+      >
+        {displayName}
+      </button>
+      {selectedType === type ? (
+        <motion.div className="filter-button-underline" layoutId="underline" />
+      ) : null}
+    </div>
   );
 };
 

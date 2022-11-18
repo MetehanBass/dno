@@ -1,10 +1,13 @@
 import React from "react";
 import { BsCart2 } from "react-icons/bs";
 
-const CartButton = () => {
+const CartButton = ({ sideBar, setSideBar }) => {
   return (
-    <button className="right-10 bottom-10 fixed">
-      <div className="navbar-cart-total flex items-center gap-3 rounded-md text-white px-4 py-2  ">
+    <button
+      className="right-10 bottom-10 z-10 fixed"
+      onClick={() => setSideBar(!sideBar)}
+    >
+      <div className="cart-total flex items-center gap-3 rounded-md text-white px-4 py-2">
         <div>
           <BsCart2 className="lg:text-4xl" />
         </div>

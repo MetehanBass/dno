@@ -4,7 +4,7 @@ import { data, filter } from "./dummyData.js";
 import "./styles.scss";
 import FilterButton from "./components/filter-buttons.js";
 import { AnimatePresence, motion } from "framer-motion";
-import ProdcutCard from "./components/product-card.js";
+import ProductCard from "./components/product-card.js";
 
 const Showcase = () => {
   const [selectedType, setSelectedType] = useState("all");
@@ -19,7 +19,7 @@ const Showcase = () => {
   }, [selectedType]);
 
   return (
-    <div className="showcase-container bg-white">
+    <div className="showcase-container  bg-white">
       <div className="showcase-wrapper py-12">
         <div className="showcase-categories flex w-full justify-center uppercase gap-4 text-xs text-black">
           {filter.map(({ type, displayName }, i) => (
@@ -39,7 +39,7 @@ const Showcase = () => {
           <AnimatePresence>
             {filteredData.map(({ img, name, type, price, id }) => (
               <React.Fragment key={id}>
-                <ProdcutCard name={name} img={img} price={price} />
+                <ProductCard name={name} img={img} price={price} />
               </React.Fragment>
             ))}
           </AnimatePresence>
