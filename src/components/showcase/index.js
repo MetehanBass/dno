@@ -3,7 +3,8 @@ import watch from "assets/showcase-watch.jpg";
 import { data, filter } from "./dummyData.js";
 import "./styles.scss";
 import FilterButton from "./components/filter-buttons.js";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import ProdcutCard from "./components/product-card.js";
 
 const Showcase = () => {
   const [selectedType, setSelectedType] = useState("all");
@@ -31,29 +32,18 @@ const Showcase = () => {
             />
           ))}
         </div>
-        <div className="grid md:grid-cols-3 grid-cols-1 w-full pt-12 px-6 gap-6 max-w-[1140px] mx-auto">
-          {filteredData.map(({ img, name, type, price }, i) => (
-            <motion.div
-              initial={{ opacity: 0.6 }}
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.2 },
-              }}
-              whileTap={{ scale: 0.95 }}
-              whileInView={{ opacity: 1 }}
-              key={i}
-              className="image-wrapper "
-            >
-              <div className="relative">
-                <img src={watch} alt={name} />
-                <div className="absolute bottom-3 left-3 text-white">
-                  <p className="text-xs">{name}</p>
-                  {price} ₺
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          layout
+          className="grid md:grid-cols-3 grid-cols-1 w-full pt-12 px-6 gap-6 mt-6 max-w-[1140px] mx-auto"
+        >
+          <AnimatePresence>
+            {filteredData.map(({ img, name, type, price, id }) => (
+              <React.Fragment key={id}>
+                <ProdcutCard name={name} img={img} price={price} />
+              </React.Fragment>
+            ))}
+          </AnimatePresence>
+        </motion.div>
         <div className="pt-16 flex flex-col gap-12 justify-center items-center">
           <div className="w-12 border-b-2 border-black border-solid" />
           <div>

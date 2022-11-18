@@ -1,75 +1,99 @@
 export const data = [
   {
-    name: "Kol Saati",
+    id: 1,
+
+    name: "Kol Saati1",
     price: "31,31",
     type: "necklace",
-    img: "assets/showcase-watch.jpg",
+    img: "showcase-watch.jpg",
+    
   },
   {
-    name: "Kol Saati",
+    id: 2,
+
+    name: "Kol Saati2",
     price: "31,31",
     type: "bracelet",
-    img: "assets/showcase-watch.jpg",
+    img: "showcase-bracelet.jpg",
   },
   {
-    name: "Kol Saati",
+    id:3,
+
+    name: "Kol Saati3",
     price: "31,31",
     type: "necklace",
-    img: "assets/showcase-watch.jpg",
+    img: "showcase-watch.jpg",
   },
   {
-    name: "Kol Saati",
+    id: 4,
+
+    name: "Kol Saati4",
     price: "31,31",
     type: "bracelet",
-    img: "assets/showcase-watch.jpg",
+    img: "showcase-bracelet.jpg",
   },
   {
-    name: "Kol Saati",
+    id: 5,
+
+    name: "Kol Saati5",
     price: "31,31",
     type: "necklace",
-    img: "assets/showcase-watch.jpg",
+    img: "showcase-watch.jpg",
   },
   {
-    name: "Kol Saati",
+    id: 6,
+
+    name: "Kol Saati6",
     price: "31,31",
     type: "necklace",
-    img: "assets/showcase-watch.jpg",
+    img: "showcase-watch.jpg",
   },
   {
-    name: "Kol Saati",
+    id: 7,
+
+    name: "Kol Saati7",
     price: "31,31",
     type: "bracelet",
-    img: "assets/showcase-watch.jpg",
+    img: "showcase-bracelet.jpg",
   },
   {
-    name: "Kol Saati",
+    id: 8,
+
+    name: "Kol Saati8",
     price: "31,31",
     type: "necklace",
-    img: "assets/showcase-watch.jpg",
+    img: "showcase-watch.jpg",
   },
   {
-    name: "Kol Saati",
+    id: 9,
+
+    name: "Kol Saati9",
     price: "31,31",
     type: "necklace",
-    img: "assets/showcase-watch.jpg",
+    img: "showcase-watch.jpg",
   },
   {
-    name: "Kol Saati",
+    id: 10,
+
+    name: "Kol Saati11",
     price: "31,31",
     type: "necklace",
-    img: "assets/showcase-watch.jpg",
+    img: "showcase-watch.jpg",
   },
   {
-    name: "Kol Saati",
+    id: 11,
+
+    name: "Kol Saati22",
     price: "31,31",
     type: "bracelet",
-    img: "assets/showcase-watch.jpg",
+    img: "showcase-bracelet.jpg",
   },
   {
-    name: "Kol Saati",
+    id:12,
+    name: "Kol Saati33",
     price: "31,31",
     type: "necklace",
-    img: "assets/showcase-watch.jpg",
+    img: "showcase-watch.jpg",
   },
 ];
 

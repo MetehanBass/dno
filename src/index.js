@@ -5,15 +5,17 @@ import Navbar from "./components/shared/navbar";
 import Hero from "./components/hero";
 import Showcase from "./components/showcase";
 import Footer from "./components/shared/footer";
+import CartButton from "components/shared/cart/cart-button";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <div className="custom-hero-background relative h-screen max-h-[850px]">
-      <Navbar />
-      <Hero />
-    </div>
+    <div className="relative">
+      <CartButton />
+    <Navbar />
+    <Hero />
     <Showcase />
     <Footer />
+    </div>
   </React.StrictMode>
 );
