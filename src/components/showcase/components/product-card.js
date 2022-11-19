@@ -11,12 +11,11 @@ const ProdcutCard = ({ name, img, price }) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
     >
-      {/* <div className="absolute bottom-3 left-3 text-white">
-        <h2>{name}</h2>
-        <h2>{price} ₺</h2>
-      </div> */}
+      <div className="absolute bottom-3 left-3 text-white">
+        <h2 className="text-xs">{price} ₺</h2>
+      </div>
       <img
-        className="w-full h-64 object-cover"
+        className="w-full object-cover aspect-square"
         src={require("../../../assets/" + img)}
         alt=""
       />
