@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+
 import "./styles.scss";
 import logoBlack from "../../../assets/dnocat-black.png";
 import logoWhite from "../../../assets/dnocat-white.png";
@@ -60,14 +62,20 @@ const Navbar = () => {
           <p>Bileklikler</p>
         </div>
       </div>
-      <motion.div
-        className="navbar-logo lg:-ml-64 ml-0 max-h-24"
-        initial={{ opacity: 0, scale: 1 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.3 }}
-      >
-        <img className="h-16" src={top ? logoBlack : logoWhite} alt="DNO-CAT" />
-      </motion.div>
+      <Link to="/">
+        <motion.div
+          className="navbar-logo lg:-ml-64 ml-0 max-h-24"
+          initial={{ opacity: 0, scale: 1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <img
+            className="h-16"
+            src={top ? logoBlack : logoWhite}
+            alt="DNO-CAT"
+          />
+        </motion.div>
+      </Link>
       <div className="flex items-center sm:gap-6 gap-2">
         <div
           ref={ref}

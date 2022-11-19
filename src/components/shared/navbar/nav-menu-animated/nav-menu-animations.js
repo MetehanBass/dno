@@ -44,6 +44,16 @@ export const accountLinksVariants = {
   closed: { opacity: 0, x: "-50px" },
 };
 export const userDropdownVariants = {
-  open: { opacity: 1, height: "auto" },
+  open: {
+    transition: {
+      duration: 0.1,
+      // The first child will appear AFTER the parrent has appeared on the screen
+      delayChildren: 0.2,
+      // The next sibling will appear 0.1s after the previous one
+      staggerChildren: 0.2,
+    },
+    opacity: 1,
+    height: "auto",
+  },
   closed: { opacity: 0, height: "0px" },
 };

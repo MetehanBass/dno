@@ -2,8 +2,7 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import "./styles.scss";
 import watch from "assets/showcase-watch.jpg";
-import { AiOutlineMinusCircle } from "react-icons/ai";
-import { AiOutlinePlusCircle } from "react-icons/ai";
+import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
 export const MenuItem = ({ i }) => {
   const variants = {
     open: {

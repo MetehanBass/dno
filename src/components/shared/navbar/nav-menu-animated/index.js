@@ -34,7 +34,6 @@ const NavMenuAnimated = ({ isOpen, top }) => {
             top ? "bg-white/90" : "bg-black/80"
           }`}
           animate={isOpen ? "open" : "closed"}
-          transition={{ duration: 0.1 }}
           variants={userDropdownVariants}
         >
           <motion.div
@@ -42,10 +41,9 @@ const NavMenuAnimated = ({ isOpen, top }) => {
             animate={isOpen ? "open" : "closed"}
             variants={accountLinksVariants}
           >
-            <motion.div transition={{ duration: 0.3 }}>Giriş Yap</motion.div>
+            <motion.div>Giriş Yap</motion.div>
             <motion.div
               animate={isOpen ? "open" : "closed"}
-              transition={{ duration: 0.4 }}
               variants={accountLinksVariants}
             >
               Kayıt Ol
