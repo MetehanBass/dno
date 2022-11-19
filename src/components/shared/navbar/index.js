@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
+import "./styles.scss";
 import logoBlack from "../../../assets/dnocat-black.png";
 import logoWhite from "../../../assets/dnocat-white.png";
 import { AiOutlineUser } from "react-icons/ai";
 import { MdMenu } from "react-icons/md";
-import { motion } from "framer-motion";
-import UserDropdown from "./user-dropdown";
+import { motion, useCycle } from "framer-motion";
+import NavMenu from "./nav-menu";
+import { MenuButton } from "./menu-button";
+import NavMenuAnimated from "./nav-menu-animated";
+
 const Navbar = () => {
   const [top, setTop] = useState(true);
-  const [isOpenUserDropdown, setIsOpenUserDropdown] = useState(false);
+  const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
+
+  const [isOpen, toggleDropdown] = useCycle(false, true);
+
   useEffect(() => {
     const scrollHandler = () => {
       window.pageYOffset > 40 ? setTop(false) : setTop(true);
@@ -51,12 +58,18 @@ const Navbar = () => {
         >
           <AiOutlineUser
             className="lg:flex hidden cursor-pointer"
-            onClick={() =>
-              setIsOpenUserDropdown((isOpenUserDropdown) => !isOpenUserDropdown)
-            }
+            onClick={() => setIsNavMenuOpen((isNavMenuOpen) => !isNavMenuOpen)}
           />
-          <UserDropdown isOpen={isOpenUserDropdown} isTop={top} />
-          <MdMenu className="lg:hidden flex" />
+
+          <MenuButton top={top} onClick={toggleDropdown} isOpen={isOpen} />
+          <NavMenuAnimated top={top} isOpen={isOpen} />
+
+          {/* <MdMenu
+            className="lg:hidden flex"
+            onClick={() => setIsNavMenuOpen((isNavMenuOpen) => !isNavMenuOpen)}
+          /> */}
+
+          {/* <NavMenu isNavMenuOpen={isNavMenuOpen} isTop={top} /> */}
         </div>
       </div>
     </div>

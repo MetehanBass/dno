@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+$dark: #16141a;
+$darker: #090909;
+
+.wrapper {
+  position: fixed;
+  z-index: 100;
+  top: 20%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.menu-button {
+  align-items: center;
+  background: transparent;
+  border: 0.1rem solid;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 3rem;
+  justify-content: center;
+  outline: none;
+  user-select: none;
+  width: 3rem;
+}
+
+.dropdown-container {
+  top: 72px !important;
+  right: -17px !important;
+  border-radius: 0.2rem;
+  box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.6);
+  overflow-x: hidden;
+  position: absolute;
+  transition: height 0.5s;
+  width: 15.5rem;
+  z-index: 200;
+  overflow-y: hidden;
+}
+
+.dropdown {
+  height: 100%;
+  position: relative;
+  transition: height 0.3s;
+  width: 31rem;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  width: 15.5rem;
+  &.menu-sizes {
+    position: absolute;
+    top: 0 !important;
+    right: 0 !important;
+  }
+}
+
+.item-list {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+
+  .item {
+    flex: 1;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      background: white;
+      color: $dark;
+    }
+  }
+}

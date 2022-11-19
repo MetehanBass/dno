@@ -28,31 +28,38 @@ export function Sidebar({ sideBar = false, setSideBar = () => {} }) {
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
             className="cart-sidebar z-[1] fixed text-white shadow-lg top-0 right-0 w-full max-w-sm h-screen p-5"
           >
-            <button
-              onClick={() => setSideBar((sideBar) => !sideBar)}
-              className="bg-white text-black h-8 w-8 block mb-2 rounded-full"
-            >
-              <IoCloseSharp className="flex justify-center text-3xl" />
-            </button>
-            <p className="text-center text-3xl font-bold">SEPET</p>
-            <div className="cart-product-wrapper mt-10">
-              <motion.ul
-                variants={variants}
-                layoutScroll
-                className="flex flex-col gap-2 max-h-[475px] overflow-y-auto"
+            <div className="flex">
+              <button
+                onClick={() => setSideBar((sideBar) => !sideBar)}
+                className="bg-white text-black h-8 w-8 block mb-2 rounded-full"
               >
-                {itemIds.map((i) => (
-                  <MenuItem i={i} key={i} />
-                ))}
-              </motion.ul>
+                <IoCloseSharp className="flex justify-center text-3xl" />
+              </button>
+              <p className=" flex-1 text-center text-3xl font-bold">SEPET</p>
             </div>
-            <div className="flex justify-between px-2 mt-6 items-center">
-              <div className="text-xl font-bold">131,31 ₺</div>
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <button className="bg-[#06d602] p-2 rounded">
-                  Sepeti Onayla
-                </button>
-              </motion.div>
+            <div className="flex flex-col justify-start gap-3 ">
+              <div className="cart-product-wrapper mt-8 ">
+                <motion.ul
+                  variants={variants}
+                  layoutScroll
+                  className="flex flex-col gap-2 max-h-[475px] overflow-y-auto"
+                >
+                  {itemIds.map((i) => (
+                    <MenuItem i={i} key={i} />
+                  ))}
+                </motion.ul>
+              </div>
+              <div className="flex justify-between px-2 items-center">
+                <div className="text-xl font-bold">131,31 ₺</div>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <button className="bg-[#06d602] p-2 rounded">
+                    Sepeti Onayla
+                  </button>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
           {/* <motion.div
