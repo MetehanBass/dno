@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import watch from "assets/showcase-watch.jpg";
 import { data, filter } from "./dummyData.js";
 import "./styles.scss";
 import FilterButton from "./components/filter-buttons.js";

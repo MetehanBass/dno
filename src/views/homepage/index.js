@@ -4,7 +4,7 @@ import Hero from "components/hero";
 import Showcase from "components/showcase";
 import Footer from "components/shared/footer";
 import CartButton from "components/shared/cart/cart-button";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Sidebar } from "components/shared/cart/sidebar";
 
 const Homepage = () => {
