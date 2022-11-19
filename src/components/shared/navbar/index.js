@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./styles.scss";
 import logoBlack from "../../../assets/dnocat-black.png";
 import logoWhite from "../../../assets/dnocat-white.png";
@@ -8,9 +8,28 @@ import { MenuButton } from "./menu-button";
 import NavMenuAnimated from "./nav-menu-animated";
 
 const Navbar = () => {
+  const ref = useRef();
   const [top, setTop] = useState(true);
 
   const [isOpen, toggleDropdown] = useCycle(false, true);
+
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      // If the menu is open and the clicked target is not within the menu,
+      // then close the menu
+      if (isOpen && ref.current && !ref.current.contains(e.target)) {
+        toggleDropdown(false);
+      }
+    };
+    console.log(isOpen);
+
+    document.addEventListener("mousedown", checkIfClickedOutside);
+
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, [isOpen, toggleDropdown]);
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -51,6 +70,7 @@ const Navbar = () => {
       </motion.div>
       <div className="flex items-center sm:gap-6 gap-2">
         <div
+          ref={ref}
           className={`text-3xl relative ${top ? "text-black" : "text-white"}`}
         >
           <AiOutlineUser
