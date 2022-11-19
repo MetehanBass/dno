@@ -3,15 +3,12 @@ import "./styles.scss";
 import logoBlack from "../../../assets/dnocat-black.png";
 import logoWhite from "../../../assets/dnocat-white.png";
 import { AiOutlineUser } from "react-icons/ai";
-import { MdMenu } from "react-icons/md";
 import { motion, useCycle } from "framer-motion";
-import NavMenu from "./nav-menu";
 import { MenuButton } from "./menu-button";
 import NavMenuAnimated from "./nav-menu-animated";
 
 const Navbar = () => {
   const [top, setTop] = useState(true);
-  const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
 
   const [isOpen, toggleDropdown] = useCycle(false, true);
 
@@ -57,19 +54,12 @@ const Navbar = () => {
           className={`text-3xl relative ${top ? "text-black" : "text-white"}`}
         >
           <AiOutlineUser
-            className="lg:flex hidden cursor-pointer"
-            onClick={() => setIsNavMenuOpen((isNavMenuOpen) => !isNavMenuOpen)}
+            className="sm:flex hidden cursor-pointer"
+            onClick={toggleDropdown}
           />
 
           <MenuButton top={top} onClick={toggleDropdown} isOpen={isOpen} />
           <NavMenuAnimated top={top} isOpen={isOpen} />
-
-          {/* <MdMenu
-            className="lg:hidden flex"
-            onClick={() => setIsNavMenuOpen((isNavMenuOpen) => !isNavMenuOpen)}
-          /> */}
-
-          {/* <NavMenu isNavMenuOpen={isNavMenuOpen} isTop={top} /> */}
         </div>
       </div>
     </div>

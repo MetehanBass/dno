@@ -13,7 +13,7 @@ const Path = (props) => (
 export const MenuButton = ({ onClick, isOpen, top }) => {
   return (
     <motion.button
-      className={`menu-button lg:hidden flex ${
+      className={`menu-button sm:hidden flex ${
         top ? "text-black border-color-black" : "text-white border-color-white"
       }`}
       onClick={onClick}
