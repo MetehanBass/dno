@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { data, filter } from "./dummyData.js";
+import { useSelector } from "react-redux";
+import { filter } from "../../dummyData.js";
 import "./styles.scss";
 import FilterButton from "./components/filter-buttons.js";
 import { AnimatePresence, motion } from "framer-motion";
 import ProductCard from "./components/product-card.js";
 
 const Showcase = () => {
+  const { allProducts } = useSelector((state) => state.products);
+
   const [selectedType, setSelectedType] = useState("all");
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     if (selectedType === "all") {
-      setFilteredData(data);
+      setFilteredData(allProducts);
     } else {
-      setFilteredData(data.filter((e) => e.type === selectedType));
+      setFilteredData(allProducts.filter((e) => e.type === selectedType));
     }
-  }, [selectedType]);
+  }, [selectedType, allProducts]);
 
   return (
     <div className="showcase-container  bg-white">
@@ -36,11 +39,12 @@ const Showcase = () => {
           className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 w-full pt-12 px-6 gap-6 mt-6 max-w-[1140px] mx-auto"
         >
           <AnimatePresence>
-            {filteredData.map(({ img, name, type, price, id }) => (
-              <React.Fragment key={id}>
-                <ProductCard name={name} img={img} price={price} />
-              </React.Fragment>
-            ))}
+            {filteredData &&
+              filteredData.map(({ img, name, type, price, id }) => (
+                <React.Fragment key={id}>
+                  <ProductCard id={id} name={name} img={img} price={price} />
+                </React.Fragment>
+              ))}
           </AnimatePresence>
         </motion.div>
         <div className="pt-16 flex flex-col gap-12 justify-center items-center">

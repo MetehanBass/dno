@@ -2,9 +2,15 @@ import { AnimatePresence, motion } from "framer-motion";
 import { MenuItem } from "./cart-products";
 import "./styles.scss";
 import { IoCloseSharp } from "react-icons/io5";
+import { useSelector } from "react-redux";
 
-export function Sidebar({ sideBar = false, setSideBar = () => {} }) {
-  const itemIds = [0, 1, 2, 3, 4, 5, 6];
+export function Sidebar({
+  sideBar = false,
+  setSideBar = () => {},
+  getTotalQuantity,
+  getTotalPrice,
+}) {
+  const cart = useSelector((state) => state.cart);
   const variants = {
     open: {
       transition: { staggerChildren: 0.07, delayChildren: 0.2 },
@@ -44,13 +50,28 @@ export function Sidebar({ sideBar = false, setSideBar = () => {} }) {
                   layoutScroll
                   className="flex flex-col gap-2 max-h-[475px] overflow-y-auto"
                 >
-                  {itemIds.map((i) => (
-                    <MenuItem i={i} key={i} />
-                  ))}
+                  {cart.cart &&
+                    cart.cart.map((item, i) => (
+                      <MenuItem
+                        i={i}
+                        key={i}
+                        id={item.id}
+                        name={item.name}
+                        price={item.price}
+                        quantity={item.quantity}
+                      />
+                    ))}
                 </motion.ul>
               </div>
               <div className="flex justify-between px-2 items-center">
-                <div className="text-xl font-bold">131,31 ₺</div>
+                <div>
+                  <div className="text-xl font-bold">
+                    {getTotalPrice() || 0} ₺
+                  </div>
+                  <div className="text-xs">
+                    {getTotalQuantity() || 0} Adet Ürün Sepette
+                  </div>
+                </div>
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}

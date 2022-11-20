@@ -1,7 +1,12 @@
 import React from "react";
 import { BsCart2 } from "react-icons/bs";
 
-const CartButton = ({ sideBar, setSideBar }) => {
+const CartButton = ({
+  sideBar,
+  setSideBar,
+  getTotalPrice,
+  getTotalQuantity,
+}) => {
   return (
     <button
       className="right-10 bottom-10 z-10 fixed"
@@ -12,8 +17,10 @@ const CartButton = ({ sideBar, setSideBar }) => {
           <BsCart2 className="lg:text-4xl" />
         </div>
         <div className="">
-          <p className="lg:text-lg text-sm font-semibold ">31.31 ₺</p>
-          <p className="float-right text-xs">1 Ürün</p>
+          <p className="lg:text-lg text-sm font-semibold ">
+            {getTotalPrice() || 0} ₺
+          </p>
+          <p className="float-right text-xs">{getTotalQuantity() || 0} Ürün</p>
         </div>
       </div>
     </button>

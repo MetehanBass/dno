@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "redux/reducers/cartSlice";
 import "./styles.scss";
 import { motion } from "framer-motion";
 import {
@@ -10,6 +12,9 @@ import watch from "assets/showcase-watch.jpg";
 import { BsStarFill, BsCart2 } from "react-icons/bs";
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
 const ProductDetail = () => {
+  const { selectedProduct } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+
   return (
     <div className="pt-24 bg-[#f5f5f5]">
       <div className="product-detail-wrapper w-full px-6 py-12 max-w-[1140px] mx-auto">
@@ -33,10 +38,7 @@ const ProductDetail = () => {
             />
           </div>
           <div className="product-info flex flex-col gap-6">
-            <div className="product-name text-2xl">
-              Çelik Kaplama Alex de Souza Kolyesi Çelik Kaplama Alex de Souza
-              Kolyesi
-            </div>
+            <div className="product-name text-2xl">{selectedProduct.name}</div>
             <div className="product-rating flex justify-between items-center">
               <div className="flex gap-1">
                 <BsStarFill className="text-orange-400" />
@@ -61,21 +63,13 @@ const ProductDetail = () => {
                 </div>
               </div>
               <div>
-                <p className="text-3xl font-semibold">31,31 ₺</p>
+                <p className="text-3xl font-semibold">
+                  {selectedProduct.price} ₺
+                </p>
               </div>
             </div>
             <div className="product-description">
-              <p className="text-sm">
-                <span className="font-bold ">DNOCAT</span> çelik kolye ise tüm
-                bu klasik olmanın dışına çıkmış ve farklı modeller tasarlayarak
-                modern insanın gerek günlük yaşamı gerek iş hayatında rahatlıkla
-                kullanabileceği modelleri aynı tasarımlarla bileştirmeyi hedef
-                almıştır. Çalıştığı modellerin pürüzsüzlüğü, geometrik
-                şekillerin tercihi bazen cam ve mine kullanımı ince ve kıl diye
-                tabir edilen çelik zincirlerin kullanımı
-                <span className="font-bold "> DNOCAT</span> çelik kolye’de
-                zarafetin önünü açmıştır.
-              </p>
+              <p className="text-sm">{selectedProduct.description}</p>
             </div>
             <div className="add-to-cart flex items-center gap-6">
               <div className="product-count flex gap-2">
@@ -101,6 +95,15 @@ const ProductDetail = () => {
                 </motion.div>
               </div>
               <motion.button
+                onClick={() =>
+                  dispatch(
+                    addToCart({
+                      id: selectedProduct.id,
+                      name: selectedProduct.name,
+                      price: selectedProduct.price,
+                    })
+                  )
+                }
                 className="add-to-cart-button flex items-center gap-2 font-medium px-3 py-1 text-white rounded-md"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}

@@ -23,10 +23,7 @@ const Navbar = () => {
         toggleDropdown(false);
       }
     };
-    console.log(isOpen);
-
     document.addEventListener("mousedown", checkIfClickedOutside);
-
     return () => {
       // Cleanup the event listener
       document.removeEventListener("mousedown", checkIfClickedOutside);

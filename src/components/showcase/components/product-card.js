@@ -1,9 +1,17 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-const ProductCard = ({ name, img, price }) => {
+import { useDispatch } from "react-redux";
+import { setSelectedProduct } from "redux/reducers/productSlice";
+const ProductCard = ({ name, img, price, id }) => {
+  const dispatch = useDispatch();
+
+  const handleSelectedProduct = () => {
+    dispatch(setSelectedProduct(id));
+  };
   return (
-    <Link to="/product-details">
+    <Link to="/product-details/">
       <motion.div
+        onClick={handleSelectedProduct}
         className="relative z-[0]"
         layout
         whileInView={{ opacity: 1 }}
