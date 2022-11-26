@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { Sidebar } from "components/shared/cart/sidebar";
 export default function App() {
   const [sideBar, setSideBar] = React.useState(false);
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.rootState.cart);
 
   const getTotalQuantity = () => {
     let total = 0;

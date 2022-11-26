@@ -10,7 +10,7 @@ export function Sidebar({
   getTotalQuantity,
   getTotalPrice,
 }) {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.rootState.cart);
   const variants = {
     open: {
       transition: { staggerChildren: 0.07, delayChildren: 0.2 },

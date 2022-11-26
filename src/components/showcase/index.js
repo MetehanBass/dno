@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import ProductCard from "./components/product-card.js";
 
 const Showcase = () => {
-  const { allProducts } = useSelector((state) => state.products);
+  const { allProducts } = useSelector((state) => state.rootState.products);
 
   const [selectedType, setSelectedType] = useState("all");
   const [filteredData, setFilteredData] = useState([]);

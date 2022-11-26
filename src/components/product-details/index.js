@@ -12,7 +12,7 @@ import watch from "assets/showcase-watch.jpg";
 import { BsStarFill, BsCart2 } from "react-icons/bs";
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
 const ProductDetail = () => {
-  const { selectedProduct } = useSelector((state) => state.products);
+  const { selectedProduct } = useSelector((state) => state.rootState.products);
   const dispatch = useDispatch();
   const [itemCount, setItemCount] = React.useState(1);
 

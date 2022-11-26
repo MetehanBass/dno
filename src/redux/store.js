@@ -1,4 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { getPersistConfig } from "redux-deep-persist";
 import CartReducer from "./reducers/cartSlice";
 import ProductReducer from "./reducers/productSlice";
 import storage from "redux-persist/lib/storage";
@@ -13,20 +14,25 @@ import {
   REGISTER,
 } from "redux-persist";
 
-const persistConfig = {
-  key: "root",
-  storage,
-};
+const rootReducer = combineReducers({
+  cart: CartReducer,
+  products: ProductReducer,
+});
 
-const persistedReducer = persistReducer(persistConfig, CartReducer);
+const persistConfig = getPersistConfig({
+  key: "root",
+  storage: storage,
+  whitelist: ["cart", "products.selectedProduct"],
+  rootReducer, // your root reducer must be also passed here
+});
+
+const rootState = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: {
-    persistedReducer,
-    cart: CartReducer,
-    products: ProductReducer,
+    rootState,
   },
-  persistedReducer,
+  rootState,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
