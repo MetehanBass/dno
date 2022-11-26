@@ -3,6 +3,7 @@ import { MenuItem } from "./cart-products";
 import "./styles.scss";
 import { IoCloseSharp } from "react-icons/io5";
 import { useSelector } from "react-redux";
+import Textfield from "components/shared/inputs/textfield";
 
 export function Sidebar({
   sideBar = false,
@@ -19,6 +20,7 @@ export function Sidebar({
       transition: { staggerChildren: 0.05, staggerDirection: -1 },
     },
   };
+
   return (
     <AnimatePresence>
       {sideBar && (
@@ -73,10 +75,23 @@ export function Sidebar({
                   </div>
                 </div>
                 <motion.div
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.9 }}
                 >
                   <button className="border p-2 rounded">Sepeti Onayla</button>
+                </motion.div>
+              </div>
+              <div className="flex justify-between px-2 items-center ">
+                <div>
+                  <Textfield placeholder="KAMPANYA KODU" maxLen={6} />
+                </div>
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <button className="border p-2 w-32 rounded">
+                    Kodu Uygula
+                  </button>
                 </motion.div>
               </div>
             </div>
