@@ -1,7 +1,7 @@
 export const slideVerticalAnimation = {
   open: {
     rotateX: 0,
-    y: 0,
+    y: -8,
     opacity: 1,
     transition: {
       duration: 0.3,

@@ -15,6 +15,19 @@ const ProductDetail = () => {
   const { selectedProduct } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const [itemCount, setItemCount] = React.useState(1);
+
+  const handleAddToCart = () => {
+    dispatch(
+      addToCart({
+        id: selectedProduct.id,
+        name: selectedProduct.name,
+        price: selectedProduct.price,
+        quantity: itemCount,
+      })
+    );
+    setItemCount(1);
+  };
+
   return (
     <div className="pt-20 bg-[#f5f5f5]">
       <div className="product-detail-wrapper w-full px-6 py-12 max-w-[1140px] mx-auto">
@@ -74,7 +87,9 @@ const ProductDetail = () => {
             <div className="add-to-cart flex items-center gap-6">
               <div className="product-count flex gap-2">
                 <motion.div
-                  onClick={() => setItemCount(itemCount - 1)}
+                  onClick={() => {
+                    itemCount > 1 && setItemCount(itemCount - 1);
+                  }}
                   className="rounded-full text-[#212121] text-[24px]"
                   variants={countController}
                   animate="decrease"
@@ -96,16 +111,7 @@ const ProductDetail = () => {
                 </motion.div>
               </div>
               <motion.button
-                onClick={() =>
-                  dispatch(
-                    addToCart({
-                      id: selectedProduct.id,
-                      name: selectedProduct.name,
-                      price: selectedProduct.price,
-                      quantity: itemCount,
-                    })
-                  )
-                }
+                onClick={() => handleAddToCart()}
                 className="add-to-cart-button flex items-center gap-2 font-medium px-3 py-1 text-white rounded-sm"
                 whileHover={{
                   scale: 1.01,

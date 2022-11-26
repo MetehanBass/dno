@@ -36,7 +36,7 @@ const Showcase = () => {
         </div>
         <motion.div
           layout
-          className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 w-full pt-12 px-6 gap-6 mt-6 max-w-[1140px] mx-auto"
+          className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 w-full pt-4 px-6 gap-1 mt-6 max-w-[1140px] mx-auto"
         >
           <AnimatePresence>
             {filteredData &&
