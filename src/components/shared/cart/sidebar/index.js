@@ -76,9 +76,7 @@ export function Sidebar({
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <button className="bg-[#06d602] p-2 rounded">
-                    Sepeti Onayla
-                  </button>
+                  <button className="border p-2 rounded">Sepeti Onayla</button>
                 </motion.div>
               </div>
             </div>

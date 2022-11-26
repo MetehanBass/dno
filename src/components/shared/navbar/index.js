@@ -40,12 +40,26 @@ const Navbar = () => {
 
   return (
     <div
-      className={`z-[2] navbar-container fixed top-0 left-0 h-24 flex md:justify-around justify-between w-full lg:px-0 px-4 items-center text-white ${
+      className={`z-[2] navbar-container fixed top-0 left-0 h-20 flex md:justify-around justify-between w-full lg:px-0 px-4 items-center text-white ${
         top ? "bg-white/90" : "bg-black/80"
       }`}
     >
+      <Link to="/">
+        <motion.div
+          className="navbar-logo  max-h-24"
+          initial={{ opacity: 0, scale: 1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <img
+            className="h-12"
+            src={top ? logoBlack : logoWhite}
+            alt="DNO-CAT"
+          />
+        </motion.div>
+      </Link>
       <div
-        className={`lg:flex hidden lg:text-sm text-xs justify-between gap-6 ${
+        className={`lg:flex hidden lg:-ml-28  -ml-0 lg:text-sm text-xs justify-between gap-6 ${
           top ? "text-black" : "text-white"
         }`}
       >
@@ -59,20 +73,7 @@ const Navbar = () => {
           <p>Bileklikler</p>
         </div>
       </div>
-      <Link to="/">
-        <motion.div
-          className="navbar-logo lg:-ml-64 ml-0 max-h-24"
-          initial={{ opacity: 0, scale: 1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3 }}
-        >
-          <img
-            className="h-16"
-            src={top ? logoBlack : logoWhite}
-            alt="DNO-CAT"
-          />
-        </motion.div>
-      </Link>
+
       <div className="flex items-center sm:gap-6 gap-2">
         <div
           ref={ref}

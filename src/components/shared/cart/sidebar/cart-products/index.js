@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import "./styles.scss";
 import watch from "assets/showcase-watch.jpg";
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
+import { IoCloseSharp } from "react-icons/io5";
 
 export const MenuItem = ({ name, quantity, price, id, i }) => {
   const dispatch = useDispatch();
@@ -30,11 +31,20 @@ export const MenuItem = ({ name, quantity, price, id, i }) => {
     },
   };
 
-  const style = { borderBottom: `2px solid #048526` };
+  const style = { borderBottom: `2px solid #212121` };
 
   return (
     <>
-      <motion.li className="flex gap-4 items-center py-3" variants={variants}>
+      <div>
+        <button
+          onClick={() => dispatch(removeItem(id))}
+          className=" text-white flex  items-center gap-1"
+        >
+          <IoCloseSharp className="flex justify-center" />{" "}
+          <p className="text-xs">Sepetten Kaldır</p>
+        </button>
+      </div>
+      <motion.li className="flex gap-4 items-center py-1" variants={variants}>
         <motion.div className="cart-product-img">
           <img src={watch} alt="DNO-NECKLACE" />
         </motion.div>
@@ -55,14 +65,14 @@ export const MenuItem = ({ name, quantity, price, id, i }) => {
           </motion.div>
           <motion.div
             onClick={() => dispatch(decrementQuantity(id))}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.5 }}
+            whileHover={{ scale: 1.01 }}
+            whileTap={{ scale: 0.8 }}
           >
             <AiOutlineMinusCircle />
           </motion.div>
         </div>
       </motion.li>
-      <div style={style} className="w-4/5 mx-auto "></div>
+      <div style={style} className="w-full mx-auto "></div>
     </>
   );
 };

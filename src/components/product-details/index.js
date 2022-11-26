@@ -14,9 +14,9 @@ import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
 const ProductDetail = () => {
   const { selectedProduct } = useSelector((state) => state.products);
   const dispatch = useDispatch();
-
+  const [itemCount, setItemCount] = React.useState(1);
   return (
-    <div className="pt-24 bg-[#f5f5f5]">
+    <div className="pt-20 bg-[#f5f5f5]">
       <div className="product-detail-wrapper w-full px-6 py-12 max-w-[1140px] mx-auto">
         <div className="breadcrumb">Anasayfa - Kolyeler - Spor</div>
         <div className="product-detail mt-10 grid sm:grid-cols-2 grid-cols-1 sm:gap-2 gap-10">
@@ -74,19 +74,20 @@ const ProductDetail = () => {
             <div className="add-to-cart flex items-center gap-6">
               <div className="product-count flex gap-2">
                 <motion.div
-                  className="rounded-full text-red-500 text-[24px]"
+                  onClick={() => setItemCount(itemCount - 1)}
+                  className="rounded-full text-[#212121] text-[24px]"
                   variants={countController}
                   animate="decrease"
-                  whileHover={{ scale: 1.1 }}
                   whileTap={decreaseWhileTap}
                 >
                   <AiOutlineMinusCircle />
                 </motion.div>
                 <div>
-                  <p className="font-medium">1 Adet</p>
+                  <p className="font-medium">{itemCount} Adet</p>
                 </div>
                 <motion.div
-                  className="rounded-full text-green-500 text-2xl"
+                  onClick={() => setItemCount(itemCount + 1)}
+                  className="rounded-full text-[#212121]  text-2xl"
                   variants={countController}
                   animate="increase"
                   whileTap={increaseWhileTap}
@@ -101,11 +102,16 @@ const ProductDetail = () => {
                       id: selectedProduct.id,
                       name: selectedProduct.name,
                       price: selectedProduct.price,
+                      quantity: itemCount,
                     })
                   )
                 }
-                className="add-to-cart-button flex items-center gap-2 font-medium px-3 py-1 text-white rounded-md"
-                whileHover={{ scale: 1.1 }}
+                className="add-to-cart-button flex items-center gap-2 font-medium px-3 py-1 text-white rounded-sm"
+                whileHover={{
+                  scale: 1.01,
+                  backgroundColor: "transparent",
+                  color: "black",
+                }}
                 whileTap={{ scale: 0.9 }}
               >
                 <BsCart2 /> <p>Sepete Ekle</p>

@@ -20,7 +20,7 @@ const ProductCard = ({ name, img, price, id }) => {
         transition={{ duration: 0.4 }}
       >
         <div className="absolute bottom-3 left-3 text-white">
-          <h2 className="text-xs">{price} ₺</h2>
+          <h2 className="text-sm">{price} ₺</h2>
         </div>
         <img
           className="w-full object-cover aspect-square rounded-md"
